@@ -20,7 +20,7 @@ func main(){
   r.HandleFunc("/dkear/status", Status )
 
   http.Handle("/", r)
-  log.Fatal(http.ListenAndServe(":9170", nil))
+  log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func TestFunc(w http.ResponseWriter, r *http.Request){
@@ -79,4 +79,5 @@ func Status(w http.ResponseWriter, r *http.Request){
 
     data := "{\"table\": \"dkearR6\", \"ItemCount\":" + strconv.FormatInt(*(result.Table.ItemCount), 10) + "}"
     fmt.Fprint(w, data)
+    //test
 }

@@ -1,6 +1,6 @@
 FROM golang:onbuild as build
 
-WORKDIR 482Sserver/
+WORKDIR /go/src/482Sserver/
 COPY . .
 Run go get -d -v ./...
 #RUN go install -v ./...
@@ -10,10 +10,10 @@ FROM alpine:latest
 run apk --update add ca-certificates
 #WORKDIR 482Assignment2/go/src/GoPollingworker
 WORKDIR /root/
-COPY --from=build /go/src/app/482Sserver/GMuxServer ./
+COPY --from=build /go/src/482Sserver/GMuxServer ./
 ENV LOGGLY_TOKEN=ea939032-848b-4f69-9155-bcc35335a746
-ENV AWS_ACCESS_KEY_ID AKIA34XNLPJYCNK4HWOT
-ENV AWS_SECRET_ACCESS_KEY 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
+ENV AWS_ACCESS_KEY_ID AKIA34XNLPJYFEDGGKVT
+ENV AWS_SECRET_ACCESS_KEY 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
 RUN env && pwd && find
 #CMD [docker image rm $(docker image ls -a -q)]
 #CMD [docker image prune -a]
